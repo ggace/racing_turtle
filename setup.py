@@ -1,43 +1,69 @@
-import turtle
+from turtle_runner import *
 from config import *
 
-t1 = turtle.Turtle()
-t1.up()
-t1.shape("turtle")
-t1.speed(0)
-t1.color("red")
+def draw_endline():
+    
+    drawing_turgle = turtle.Turtle()
 
-t2 = turtle.Turtle()
-t2.up()
-t2.shape("turtle")
-t2.speed(0)
-t2.color("blue")
+    drawing_turgle.hideturtle()
+    drawing_turgle.speed(0)
+    drawing_turgle.penup()
+    drawing_turgle.goto(width/2-100, height/2)
+    drawing_turgle.pendown()
+    drawing_turgle.goto(width/2-100, -height/2)
+    drawing_turgle.goto(width/2-50, -height/2)
+    drawing_turgle.goto(width/2-50, height/2)
 
-t3 = turtle.Turtle()
-t3.up()
-t3.shape("turtle")
-t3.speed(0)
-t3.color("orange")
+    drawing_turgle.left(360/4)
 
-t4 = turtle.Turtle()
-t4.up()
-t4.shape("turtle")
-t4.speed(0)
-t4.color("green")
+    for i in range(int(height/100)):
+        drawing_turgle.fillcolor('black')
+        drawing_turgle.begin_fill()
+        for i in range(4):
+            drawing_turgle.left(360/4)
+            drawing_turgle.forward(50)
+        drawing_turgle.end_fill()
+        drawing_turgle.goto(drawing_turgle.pos()[0], drawing_turgle.pos()[1]-50)
+        for i in range(4):
+            drawing_turgle.left(360/4)
+            drawing_turgle.forward(50)
+        drawing_turgle.goto(drawing_turgle.pos()[0], drawing_turgle.pos()[1]-50)
 
-t5 = turtle.Turtle()
-t5.up()
-t5.shape("turtle")
-t5.speed(0)
+    drawing_turgle.penup()
+    drawing_turgle.goto(width/2, height/2)
+    drawing_turgle.pendown()
 
-t1.goto(-width/2+100, 200)
-t2.goto(-width/2+100, 100)
-t3.goto(-width/2+100, 0)
-t4.goto(-width/2+100, -100)
-t5.goto(-width/2+100, -200)
+    for i in range(int(height/100)):
+        
+        for i in range(4):
+            drawing_turgle.left(360/4)
+            drawing_turgle.forward(50)
+        drawing_turgle.end_fill()
+        drawing_turgle.goto(drawing_turgle.pos()[0], drawing_turgle.pos()[1]-50)
+        drawing_turgle.fillcolor('black')
+        drawing_turgle.begin_fill()
+        for i in range(4):
+            drawing_turgle.left(360/4)
+            drawing_turgle.forward(50)
+        drawing_turgle.end_fill()
+        drawing_turgle.goto(drawing_turgle.pos()[0], drawing_turgle.pos()[1]-50)
+draw_endline()
 
-t1.speed(100)
-t2.speed(100)
-t3.speed(100)
-t4.speed(100)
-t5.speed(100)
+t1 = Runner("red", 1)
+t2 = Runner("blue", 2)
+t3 = Runner("orange", 3)
+t4 = Runner("green", 4)
+t5 = Runner("yellow", 5)
+
+t1.runner.goto(-width/2+100, 200)
+t2.runner.goto(-width/2+100, 100)
+t3.runner.goto(-width/2+100, 0)
+t4.runner.goto(-width/2+100, -100)
+t5.runner.goto(-width/2+100, -200)
+
+t1.runner.speed(100)
+t2.runner.speed(100)
+t3.runner.speed(100)
+t4.runner.speed(100)
+t5.runner.speed(100)
+

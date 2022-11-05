@@ -1,17 +1,11 @@
 import turtle
 from config import *
 from setup import *
-import random
 from matplotlib import pyplot
 
 turtle.setup(width=width, height=height)
 
-def turtleMove(turtle: turtle):
-    if(turtle.pos()[0] <= width/2 - 100):
-        turtle.forward(random.randint(10, 50))
-        return False
 
-    return True
 
 end1 = False
 end2 = False
@@ -32,39 +26,26 @@ turtle5_x = []
 def result(num):
     print(num)
 
-while not(end1 and end2 and end3 and end4 and end5):
+while not(t1.end and t2.end and t3.end and t4.end and t5.end):
+    t1_statue = t1.turtleMove()
+    t2_statue = t2.turtleMove()
+    t3_statue = t3.turtleMove()
+    t4_statue = t4.turtleMove()
+    t5_statue = t5.turtleMove()
     
-    if(not end1):
-        if turtleMove(t1):
-            end1 = True
-            result(1)
+    print("" if t1_statue==None else t1_statue, end="")
+    print("" if t2_statue==None else t2_statue, end="")
+    print("" if t3_statue==None else t3_statue, end="")
+    print("" if t4_statue==None else t4_statue, end="")
+    print("" if t5_statue==None else t5_statue, end="")
 
-    if(not end2):
-        if turtleMove(t2):
-            end2 = True
-            result(2)
-    
-    if(not end3):
-        if turtleMove(t3):
-            end3 = True
-            result(3)
-    
-    if(not end4):
-        if turtleMove(t4):
-            end4 = True
-            result(4)
-    
-    if(not end5):
-        if turtleMove(t5):
-            end5 = True
-            result(5)
 
     x.append(i)
-    turtle1_x.append(t1.pos()[0])
-    turtle2_x.append(t2.pos()[0])
-    turtle3_x.append(t3.pos()[0])
-    turtle4_x.append(t4.pos()[0])
-    turtle5_x.append(t5.pos()[0])
+    turtle1_x.append(t1.runner.pos()[0])
+    turtle2_x.append(t2.runner.pos()[0])
+    turtle3_x.append(t3.runner.pos()[0])
+    turtle4_x.append(t4.runner.pos()[0])
+    turtle5_x.append(t5.runner.pos()[0])
 
     pyplot.plot(turtle1_x, color='r')
     pyplot.plot(turtle2_x, color='b')
