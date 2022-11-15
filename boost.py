@@ -3,7 +3,6 @@ class Boost:
     repeat:int
     forward:tuple
 
-    def __init__(self, percentage, repeat, forward):
+    def __init__(self, percentage:int, forward: tuple):
         self.percentage = percentage
-        self.repeat = repeat
-        self.forward = forward
+        self.forward    = forward

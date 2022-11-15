@@ -15,10 +15,12 @@ class Runner:
     number: int
     end: bool = False
     boost:Boost
-    default_forward = (10,50)
+    default_forward = (10,30)
     boost_on = False
 
-    def __init__(self, color, number, boost=None):
+    y = []
+
+    def __init__(self, color:str, number:int, boost=None):
         
         runner = turtle.Turtle()
         runner.up()
@@ -28,10 +30,12 @@ class Runner:
         self.runner = runner
         self.number = number
         self.boost = boost
-        
+    def setup(self):
+        self.y = []
     
     def turtleMove(self):
         global score
+        self.y.append(self.runner.pos()[0])
         if(self.end):
             return None
         elif(self.runner.pos()[0] <= width/2 - 100):
@@ -41,7 +45,7 @@ class Runner:
             else:
                 self.runner.forward(random.randint(self.default_forward[0], self.default_forward[1]))
             
-            #time.sleep(0.001)
+            
             
             return None
             
