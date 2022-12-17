@@ -32,7 +32,9 @@ class Runner:
         self.boost = boost
     def setup(self):
         self.y = []
-    
+    def change_boost(self, boost_setting:str):
+        boost_split = boost_setting.split(" ")
+        self.boost = Boost(float(boost_split[0]), (float(boost_split[1]), float(boost_split[2])))
     def turtleMove(self):
         global score
         self.y.append(self.runner.pos()[0])
